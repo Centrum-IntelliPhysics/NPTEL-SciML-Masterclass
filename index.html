@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SciML for Computational Mechanics · NPTEL Masterclass</title>
+<meta name="description" content="A three-session NPTEL masterclass by Somdatta Goswami (Johns Hopkins University): physics-informed neural networks and neural operators, built from scratch in PyTorch on problems you can check by hand.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scientific Machine Learning for Computational Mechanics · NPTEL Masterclass">
+<meta property="og:description" content="Physics-informed neural networks and neural operators, built from scratch in PyTorch. Three live sessions, 13 Colab worksheets.">
+<meta property="og:image" content="https://centrum-intelliphysics.github.io/NPTEL-SciML-Masterclass/assets/img/og_card.jpg">
+<meta property="og:url" content="https://centrum-intelliphysics.github.io/NPTEL-SciML-Masterclass/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1F45">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spectral:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23002D72'/%3E%3Cpath d='M7 22c4-9 7-9 9 0s5 9 9 0' stroke='%23F0A25C' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>SciML Masterclass</b><span>NPTEL · Johns Hopkins</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#sessions">Sessions</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#kit">What you get</a>
+      <a href="#setup">Setup</a>
+      <a href="#instructor">Instructor</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="theme-btn" id="theme" aria-label="Switch light or dark theme" title="Light / dark">◐</button>
+    <a class="btn btn-primary btn-sm header-cta" data-register href="#register">Register</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================================================== HERO -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">NPTEL Masterclass · 3 live sessions · 6 hours</p>
+      <h1>Scientific Machine Learning for Computational Mechanics</h1>
+      <p class="lede">Physics-informed neural networks and neural operators, built from scratch in PyTorch on three problems you can check by hand: a burn, a bookshelf and a hidden book.</p>
+      <div class="actions">
+        <a class="btn btn-primary" data-register href="#register">Register on NPTEL</a>
+        <a class="btn btn-ghost" href="#setup">Check your setup</a>
+      </div>
+      <ul class="facts">
+        <li><span><b>3 × 2 h</b> live, hands-on sessions</span></li>
+        <li><span><b>13 Colab worksheets</b>, each with a solution</span></li>
+        <li><span>Runs on the <b>free Colab CPU</b></span></li>
+        <li><span>Prerequisite: <b>comfortable with Python</b></span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="trailer">
+        <video controls preload="none" poster="assets/img/course_banner.jpg" aria-label="Course introduction video">
+          <source src="assets/video/trailer.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="trailer-cap">Course introduction from the instructor (13 min).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================== WHY -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">How this masterclass is different</p>
+      <h2>You build every method yourself, on a problem you can verify</h2>
+      <p>Most tutorials stop once the network trains. These sessions also show you how to check that it is right, and what to do when it is not.</p>
+    </div>
+    <div class="why">
+      <article><div class="num">01</div><h3>One problem per session</h3><p>Heat in skin, a loaded shelf, a shelf with a hidden book. Each has an exact answer, so every error you see is a real error.</p></article>
+      <article><div class="num">02</div><h3>You write the code</h3><p>Every worksheet has TODO cells and self-checks that unit-test the physics, so you know a step is correct before you train.</p></article>
+      <article><div class="num">03</div><h3>Results you reproduce</h3><p>Every number on the slides comes from a notebook in your kit. Each notebook generates its own data, so there is nothing to download.</p></article>
+      <article><div class="num">04</div><h3>When it fails, and why</h3><p>Checklists you can use at work: why a PINN won’t converge, which operator fits your problem, when a physics loss helps and when it hurts.</p></article>
+    </div>
+
+    <h3 style="margin:48px 0 14px">Every session runs in four modes</h3>
+    <div class="flow">
+      <div><b>Learn</b><span>Each idea, introduced on the session’s problem.</span></div>
+      <div><b>Predict</b><span>You commit to a guess in the chat before anything runs.</span></div>
+      <div><b>Do</b><span>Fill in the TODO cells; a self-check prints PASSED.</span></div>
+      <div><b>Reflect</b><span>The class compares results from different settings.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== SESSIONS -->
+<section id="sessions">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Three sessions, one storyline</p>
+      <h2>From one solution, to all solutions, to solutions you can trust</h2>
+      <p>Each session answers the question the previous one leaves open.</p>
+    </div>
+
+    <div class="sessions">
+      <!-- S1 -->
+      <article class="session" id="s1">
+        <div class="art">
+          <div class="plate"><img src="assets/img/s1_skin.webp" width="1400" height="794" alt="Illustration of a skin cross-section under spilled hot tea: epidermis, dermis with blood vessels and nerves, and subcutaneous fat, with heat flowing downward."></div>
+          <p class="problem"><small>Live problem</small>Tea at 70 °C spills on your hand. How deep is the burn after five seconds?</p>
+          <p class="handson"><b>Hands-on W1.</b> Build the skin-burn PINN from scratch, validate it against the exact solution, and turn the temperature field into a burn depth with the Henriques damage integral. Then the whole class sweeps the physics-loss weight together.</p>
+        </div>
+        <div class="body">
+          <span class="tag">Session 1 · 2 hours</span>
+          <h3>Teaching physics to a neural network: PINNs</h3>
+          <div class="cols">
+            <div>
+              <h4>You will learn</h4>
+              <ul>
+                <li>Why data-only surrogates fail with sparse sensors</li>
+                <li>Activations and automatic differentiation for PDEs</li>
+                <li>Building a PINN loss: residual, boundary and initial terms, collocation, scaling</li>
+                <li>Inverse problems: an unknown parameter becomes one more trainable weight</li>
+                <li>Failure modes and remedies: loss imbalance, spectral bias, sharp features, causality</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Research showcases</h4>
+              <ul>
+                <li>Locating a hidden crack in aircraft aluminium from ultrasound</li>
+                <li>Estimating a tumour’s growth rate from scans</li>
+                <li>Energy-based PINNs for fracture</li>
+              </ul>
+              <h4>Offline practice</h4>
+              <ul>
+                <li>O1 · Heated metal rod, forward and inverse</li>
+                <li>O2 · PINN failure lab: four broken problems to fix</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- S2 -->
+      <article class="session" id="s2">
+        <div class="art">
+          <div class="plate"><img src="assets/img/s2_shelf.webp" width="1300" height="632" alt="Drawing of a wall-mounted pine shelf carrying six books of different masses; the free end sags 3.9 mm."></div>
+          <p class="problem"><small>Live problem</small>Any books, any arrangement: predict how a wall shelf sags, in a millisecond.</p>
+          <p class="handson"><b>Hands-on W2.</b> Generate data from a beam solver, build and train a DeepONet, and test it on shelves it has never seen. Then a design challenge: load the shelf as much as you can and stay under the sag limit.</p>
+        </div>
+        <div class="body">
+          <span class="tag">Session 2 · 2 hours</span>
+          <h3>From one solution to all solutions: neural operators</h3>
+          <div class="cols">
+            <div>
+              <h4>You will learn</h4>
+              <ul>
+                <li>Operators: learning the map from input functions to solution functions</li>
+                <li>DeepONet from the universal approximation theorem for operators</li>
+                <li>The trunk learns mode shapes; the branch learns their amplitudes</li>
+                <li>Designing training data and sensors; how much data you need</li>
+                <li>When the vanilla DeepONet fails: NOMAD, MIONet, Latent DeepONet</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Live demo</h4>
+              <ul>
+                <li>A burn-clinic operator that answers 1,000 scenarios at once, and the questions where it quietly fails</li>
+              </ul>
+              <h4>Research showcases</h4>
+              <ul>
+                <li>Brain motion from MRI, age and vibration frequency (multi-input operators)</li>
+                <li>Latent DeepONet for atmospheric flow</li>
+              </ul>
+              <h4>Offline practice</h4>
+              <ul>
+                <li>O3 Traffic-jam fronts (Burgers) · O4 NOMAD · O5 MIONet · O6 Latent DeepONet</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- S3 -->
+      <article class="session" id="s3">
+        <div class="art">
+          <div class="plate"><img src="assets/img/s3_detective.webp" width="1300" height="650" alt="Drawing of the shelf with one covered book marked with a question mark and six strain gauges glued underneath."></div>
+          <p class="problem"><small>Live problem</small>One book is hidden on the shelf. Where is it, how heavy is it, and can you trust the answer?</p>
+          <p class="handson"><b>Hands-on W3.</b> Train a physics-informed operator with zero labelled data, run a class experiment with deliberately wrong physics, then find your own hidden book from six strain gauges.</p>
+        </div>
+        <div class="body">
+          <span class="tag">Session 3 · 2 hours</span>
+          <h3>Physics-informed operators, inverse problems and hybrid solvers</h3>
+          <div class="cols">
+            <div>
+              <h4>You will learn</h4>
+              <ul>
+                <li>Physics-informed DeepONets trained without a single solver run</li>
+                <li>When a physics loss helps, and when wrong physics makes things worse</li>
+                <li>Separable operators for 3D problems</li>
+                <li>Inverse problems through operators, and checking identifiability</li>
+                <li>Discovering hidden physics (DHPO)</li>
+                <li>Coupling operators with numerical solvers: Schwarz, FE–NO, ANCHOR</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Live demo</h4>
+              <ul>
+                <li>Finite differences and a DeepONet solving a cooling fin together</li>
+              </ul>
+              <h4>Research showcases</h4>
+              <ul>
+                <li>Thermal conductivity from 40 temperature sensors</li>
+                <li>Hidden reaction physics, extrapolated in time</li>
+                <li>Finite element–neural operator coupling in elastodynamics</li>
+              </ul>
+              <h4>Offline practice</h4>
+              <ul>
+                <li>O7 Cooling fin, no solver data · O8 Detective with uncertainty · O9 Hybrid solver lab · O10 Hidden physics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="results" aria-label="Examples of results produced in the worksheets">
+      <figure class="wide">
+        <div class="pic"><img src="assets/img/s1_burn_front.webp" width="1800" height="728" loading="lazy" alt="Four panels of skin temperature after 1, 3, 5 and 10 seconds of contact with 70 °C tea; the irreversibly damaged layer deepens from 0.14 to 0.62 mm."></div>
+        <figcaption><b>Session 1 · the burn front</b>After 5 s at 70 °C the damage reaches about 0.4 mm, well past the epidermis. Your PINN gets within about 0.01 mm of the exact answer.</figcaption>
+      </figure>
+      <figure>
+        <div class="pic"><img src="assets/img/s2_burn_clinic.webp" width="1400" height="792" loading="lazy" alt="Contour chart of predicted burn depth against liquid temperature and contact time, with 1947 experimental burn thresholds overlaid."></div>
+        <figcaption><b>Session 2 · a burn-clinic operator</b>One trained operator gives the burn depth for 1,000 combinations of liquid temperature and contact time in about 10 ms. The dashed line, burn through the epidermis, sits close to the 1947 scald experiments.</figcaption>
+      </figure>
+      <figure>
+        <div class="pic"><img src="assets/img/s3_same_sag.webp" width="1500" height="649" loading="lazy" alt="Left: sag curves of a 3 kg book at 36 cm and a 2 kg book at 45 cm are almost identical. Right: their strain curves are clearly different."></div>
+        <figcaption><b>Session 3 · measure the right thing</b>Two different books give the same sag but different strain. That is why strain gauges find the book and sag lasers cannot.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== OUTCOMES -->
+<section id="outcomes">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Learning outcomes</p>
+      <h2>What you will be able to do</h2>
+    </div>
+    <ul class="outcomes">
+      <li>Explain how a PINN encodes the PDE, boundary and initial conditions in its loss, and how automatic differentiation computes the residual.</li>
+      <li>Build and train a PINN from scratch in PyTorch and validate it against an analytical solution.</li>
+      <li>Distinguish solving one PDE instance from learning an operator that generalises across loads, boundary conditions and sources.</li>
+      <li>Implement a DeepONet, design its training data, and measure its accuracy with the relative L2 error.</li>
+      <li>Decide when a physics loss improves training and when it introduces errors, and choose an architecture to match.</li>
+      <li>Solve an inverse problem through a trained operator and judge whether the problem is identifiable.</li>
+      <li>Couple a neural operator with a classical solver by domain decomposition.</li>
+      <li>Name the open challenges in scientific machine learning and pick the right tool for your own problem.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================================================== SCHEDULE -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Schedule</p>
+      <h2>Three live sessions of two hours</h2>
+      <p>Hands-on blocks sit inside the lecture, so you write code within the first 40 minutes of every session.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Sessions">
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">Session 1 · PINNs<small data-when="0"></small></button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">Session 2 · Neural operators<small data-when="1"></small></button>
+      <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">Session 3 · PI operators &amp; hybrids<small data-when="2"></small></button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+      <ol class="timeline">
+        <li><time>0:00</time><div class="what"><b>Welcome and the burn problem</b><span>How deep does a burn go, and why depth decides the treatment</span></div><span class="pill poll">Poll</span></li>
+        <li><time>0:11</time><div class="what"><b>Why ML for computational mechanics</b><span>The simulation bottleneck; where data-only surrogates fail</span></div><span></span></li>
+        <li><time>0:20</time><div class="what"><b>Neural-network refresher, only what PINNs need</b><span>Smooth activations; automatic differentiation by hand</span></div><span class="pill demo">Live demo</span></li>
+        <li><time>0:33</time><div class="what"><b>From skin to a model</b><span>The heat equation, scaled to the unit square</span></div><span></span></li>
+        <li><time>0:40</time><div class="what"><b>Hands-on A</b><span>The network and the PDE residual</span></div><span class="pill do">Hands-on</span></li>
+        <li><time>0:53</time><div class="what"><b>The PINN loss and training</b><span>Boundary and initial terms, collocation points, the training loop</span></div><span></span></li>
+        <li><time>1:01</time><div class="what"><b>Hands-on B</b><span>Loss terms, training, burn depth from the damage integral</span></div><span class="pill do">Hands-on</span></li>
+        <li><time>1:14</time><div class="what"><b>Result: the burn front</b><span>Checked against the 1947 scald experiments</span></div><span></span></li>
+        <li><time>1:19</time><div class="what"><b>Inverse problems and research showcases</b><span>Crack detection, tumour growth, fracture</span></div><span></span></li>
+        <li><time>1:28</time><div class="what"><b>Hands-on C: the physics-weight experiment</b><span>Each attendee runs one setting; the class builds the full curve</span></div><span class="pill do">Hands-on</span></li>
+        <li><time>1:36</time><div class="what"><b>Failure modes and remedies</b><span>Spectral bias, sharp features, causality, and a troubleshooting checklist</span></div><span></span></li>
+        <li><time>1:46</time><div class="what"><b>Takeaways and questions</b></div><span></span></li>
+      </ol>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+      <ol class="timeline">
+        <li><time>0:00</time><div class="what"><b>Recap and the bookshelf problem</b><span>Why one PINN per scenario is too slow</span></div><span class="pill poll">Poll</span></li>
+        <li><time>0:09</time><div class="what"><b>Why operators</b><span>Many-query engineering; functions in, functions out; what it costs</span></div><span></span></li>
+        <li><time>0:21</time><div class="what"><b>DeepONet</b><span>Universal approximation, branch × trunk, mode shapes, training data, tensor shapes</span></div><span></span></li>
+        <li><time>0:37</time><div class="what"><b>Hands-on A</b><span>Generate data and build the DeepONet</span></div><span class="pill do">Hands-on</span></li>
+        <li><time>0:49</time><div class="what"><b>Training behaviour and data needs</b><span>How the error falls with the number of solver runs</span></div><span></span></li>
+        <li><time>0:55</time><div class="what"><b>Hands-on B</b><span>Train, test on unseen shelves, design challenge, activation experiment</span></div><span class="pill do">Hands-on</span></li>
+        <li><time>1:12</time><div class="what"><b>Speed, resolution and extrapolation</b><span>Linear versus nonlinear operators</span></div><span></span></li>
+        <li><time>1:17</time><div class="what"><b>The burn-clinic operator</b><span>1,000 scenarios at once, and where it fails without warning</span></div><span class="pill demo">Live demo</span></li>
+        <li><time>1:22</time><div class="what"><b>Beyond vanilla DeepONet</b><span>NOMAD, MIONet with brain biomechanics, Latent DeepONet, choosing a variant</span></div><span></span></li>
+        <li><time>1:45</time><div class="what"><b>Takeaways and questions</b></div><span></span></li>
+      </ol>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+      <ol class="timeline">
+        <li><time>0:00</time><div class="what"><b>Three questions before trusting an operator</b></div><span></span></li>
+        <li><time>0:06</time><div class="what"><b>Physics-informed operators</b><span>Free inputs, costly labels; lowering the derivative order; when physics hurts; separable operators</span></div><span class="pill poll">Poll</span></li>
+        <li><time>0:28</time><div class="what"><b>Operators that see what we cannot measure</b><span>The shelf detective, identifiability, system identification, hidden physics</span></div><span class="pill poll">Poll</span></li>
+        <li><time>0:43</time><div class="what"><b>Hands-on W3</b><span>Training with no solver data, the wrong-physics experiment, finding your hidden book</span></div><span class="pill do">Hands-on</span></li>
+        <li><time>1:13</time><div class="what"><b>Operators inside engineering solvers</b><span>Schwarz iteration by hand, FE–NO coupling, ANCHOR</span></div><span class="pill demo">Live demo</span></li>
+        <li><time>1:34</time><div class="what"><b>Open challenges and choosing a tool</b><span>A decision chart across all three sessions</span></div><span></span></li>
+        <li><time>1:45</time><div class="what"><b>Takeaways and questions</b></div><span></span></li>
+      </ol>
+    </div>
+    <p class="schedule-note">Times are minutes from the start of each session. <span data-tz></span></p>
+  </div>
+</section>
+
+<!-- ===================================================== KIT -->
+<section id="kit">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What registered participants receive</p>
+      <h2>A self-contained kit to keep and adapt</h2>
+      <p>Every notebook makes its own data, so you can replace our solver with yours and have a starting project.</p>
+    </div>
+    <div class="kit">
+      <article>
+        <h3>Session 1</h3><p class="sub">PINNs</p>
+        <ul>
+          <li><code>W1</code><span>Skin-burn PINN: live worksheet, solution, handout</span></li>
+          <li><code>O1</code><span>Heated metal rod, forward and inverse</span></li>
+          <li><code>O2</code><span>PINN failure lab</span></li>
+          <li><code>PDF</code><span>Session slides</span></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Session 2</h3><p class="sub">Neural operators</p>
+        <ul>
+          <li><code>W2</code><span>Bookshelf DeepONet: live worksheet, solution, handout</span></li>
+          <li><code>O3</code><span>Traffic-jam fronts with Burgers’ equation</span></li>
+          <li><code>O4</code><span>NOMAD on a travelling pulse</span></li>
+          <li><code>O5</code><span>MIONet: a shelf with knots</span></li>
+          <li><code>O6</code><span>Latent DeepONet: a floor slab under furniture</span></li>
+          <li><code>PDF</code><span>Session slides</span></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Session 3</h3><p class="sub">PI operators, inverse problems, hybrids</p>
+        <ul>
+          <li><code>W3</code><span>Physics instead of data, and the shelf detective: worksheet, solution, handout</span></li>
+          <li><code>O7</code><span>Cooling fin with no solver data</span></li>
+          <li><code>O8</code><span>Detective: uncertainty and sensor placement</span></li>
+          <li><code>O9</code><span>Hybrid solver lab</span></li>
+          <li><code>O10</code><span>Discovering a hidden reaction law</span></li>
+          <li><code>PDF</code><span>Session slides</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="kit-note">
+      <p data-kit-text><b>The kit is shared with registered participants before Session 1.</b> All notebooks are in PyTorch and run in Google Colab.</p>
+      <a class="btn btn-primary" data-register href="#register">Register on NPTEL</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== SETUP -->
+<section id="setup">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Before Session 1 · 5 minutes</p>
+      <h2>Check your setup</h2>
+      <p>Everything runs in the browser on Google Colab. Nothing to install.</p>
+    </div>
+    <div class="setup">
+      <div>
+        <ol class="steps">
+          <li><h3>Sign in to Google</h3><p>Any Google account works. Colab is free.</p></li>
+          <li><h3>Open the setup check in Colab</h3><p>Click the button below, then <i>Runtime → Run all</i>. It checks PyTorch, tests second derivatives through autograd, and trains a tiny physics-informed network for a few seconds.</p>
+            <p style="margin-top:12px"><a class="btn btn-primary btn-sm" data-colab href="#" target="_blank" rel="noopener">Open setup check in Colab</a></p></li>
+          <li><h3>Optional: switch on a GPU</h3><p><i>Runtime → Change runtime type → T4 GPU</i> makes training faster, but every worksheet is designed for the free CPU.</p></li>
+        </ol>
+        <div class="prereq">
+          <h3>Prerequisites</h3>
+          <ul>
+            <li>Comfortable writing Python; some NumPy</li>
+            <li>Helpful, not required: the heat equation, beam bending, a first course in machine learning</li>
+            <li>No prior PyTorch needed; every new construct is introduced in the worksheet</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <pre class="code" aria-label="Expected output of the setup check"><span class="c"># the last cell prints</span>
+PyTorch 2.0 or newer             <span class="ok">✓</span>
+torch.func available             <span class="ok">✓</span>
+autograd 2nd-derivative test     <span class="ok">✓</span>
+tiny PINN trains (loss falls)    <span class="ok">✓</span>
+matplotlib plots                 <span class="ok">✓</span>
+
+<span class="ok">You are ready for the masterclass.</span></pre>
+        <p class="schedule-note">If the last line does not appear, send the output to the organisers before Session 1<span data-contact-inline></span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== INSTRUCTOR -->
+<section id="instructor">
+  <div class="wrap">
+    <div class="section-head"><p class="kicker">Instructor</p></div>
+    <div class="instructor">
+      <img src="assets/img/instructor.jpg" width="640" height="640" alt="Portrait of Somdatta Goswami">
+      <div>
+        <h3>Somdatta Goswami</h3>
+        <p class="role">Assistant Professor, Civil and Systems Engineering, with a joint appointment in Applied Mathematics and Statistics · Johns Hopkins University</p>
+        <p>Her research lies at the intersection of scientific machine learning, computational mechanics and applied mathematics. She develops physics-informed and hybrid neural-physics methods for complex, multiscale and multiphysics problems, including neural operators, operator learning, scientific foundation models and AI-enhanced computational solvers, with applications in materials, mechanics and biomedical systems. She leads the Centrum IntelliPhysics group and received the 2026 William H. Huggins Excellence in Teaching Award from the Whiting School of Engineering.</p>
+        <div class="links">
+          <a href="https://github.com/Centrum-IntelliPhysics" target="_blank" rel="noopener">Centrum IntelliPhysics on GitHub</a>
+          <a href="https://scholar.google.com/citations?user=GaKrpSkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/somdatta-goswami-03a21943/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://engineering.jhu.edu/case/news/somdatta-goswami-receives-johns-hopkins-william-h-huggins-excellence-in-teaching-award/" target="_blank" rel="noopener">Teaching award</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:56px 0 6px">Research behind the material</h3>
+    <p style="color:var(--muted);margin-bottom:12px">Papers from the group that the sessions draw on.</p>
+    <ul class="papers">
+      <li>Transfer-learning enhanced physics-informed neural network for phase-field modeling of fracture<span class="where">Goswami, Anitescu, Chakraborty, Rabczuk · Theor. Appl. Fract. Mech. 106 (2020) · <a href="https://doi.org/10.1016/j.tafmec.2019.102447">doi</a></span><span class="used">Session 1</span></li>
+      <li>Learning nonlinear operators in latent spaces for real-time predictions of complex dynamics in physical systems<span class="where">Kontolati, Goswami, Karniadakis, Shields · Nat. Commun. 15 (2024) · <a href="https://doi.org/10.1038/s41467-024-49411-w">doi</a></span><span class="used">Session 2</span></li>
+      <li>Multimodal neural operators for real-time biomechanical modelling of traumatic brain injury<span class="where">Agarwal, Roy Sarkar, Goswami · Comput. Methods Programs Biomed. 282 (2026) 109398 · <a href="https://doi.org/10.1016/j.cmpb.2026.109398">doi</a></span><span class="used">Session 2</span></li>
+      <li>Efficient training of deep neural operator networks via randomized sampling<span class="where">Karumuri, Graham-Brady, Goswami · <a href="https://arxiv.org/abs/2409.13280">arXiv:2409.13280</a></span><span class="used">Session 2</span></li>
+      <li>Separable physics-informed DeepONet: breaking the curse of dimensionality in physics-informed machine learning<span class="where">Mandl, Goswami, Lambers, Ricken · Comput. Methods Appl. Mech. Eng. (2025) · <a href="https://doi.org/10.1016/j.cma.2024.117586">doi</a></span><span class="used">Session 3</span></li>
+      <li>Learning hidden physics and system parameters with deep operator networks<span class="where">Roy Sarkar, Kag, Pal, Goswami · Comput. Methods Appl. Mech. Eng. 456 (2026) 118926 · <a href="https://doi.org/10.1016/j.cma.2026.118926">doi</a></span><span class="used">Session 3</span></li>
+      <li>Time-marching neural operator–FE coupling: AI-accelerated physics modeling<span class="where">Wang, Hakimzadeh, Ruan, Goswami · Comput. Methods Appl. Mech. Eng. (2025) 118319 · <a href="https://doi.org/10.1016/j.cma.2025.118319">doi</a></span><span class="used">Session 3</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================================================== FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head"><p class="kicker">Questions</p><h2>Frequently asked</h2></div>
+    <div class="faq">
+      <details><summary>Who is this masterclass for?</summary><p>Graduate students, researchers and engineers in mechanical, civil, aerospace, chemical and biomedical engineering, or in applied mathematics, who simulate physical systems and want to use machine learning with them. If you can write a Python function and a for-loop, you can follow the worksheets.</p></details>
+      <details><summary>Do I need a GPU or a powerful laptop?</summary><p>No. Every worksheet runs on the free Colab CPU. The longest training cell in the live worksheets takes about two to three minutes on a Colab CPU, and under a minute on a free T4 GPU.</p></details>
+      <details><summary>Which framework do the worksheets use?</summary><p>PyTorch only. Session 3 also uses <code>torch.func</code> for derivatives, which is part of PyTorch 2.0 and later. You can run the notebooks in a local Jupyter installation as well.</p></details>
+      <details><summary>What if I fall behind during a hands-on block?</summary><p>Each TODO has a folded hint and a self-check that tells you whether your code is right. The solution notebooks are in the kit, and the offline worksheets let you practise each idea again at your own pace.</p></details>
+      <details><summary>Are the sessions recorded?</summary><p>Yes, NPTEL records the live sessions. See the NPTEL registration page for how recordings are made available.</p></details>
+      <details><summary>How do fees and certificates work?</summary><p>Registration, fees and certificates are handled by NPTEL. Please see the registration page.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" id="register">
+  <div class="wrap">
+    <div>
+      <b>SciML for Computational Mechanics</b><br>
+      NPTEL Masterclass · Centrum IntelliPhysics, Johns Hopkins University
+    </div>
+    <div>
+      <span data-register-text></span><br>
+      <span data-contact></span>
+    </div>
+    <div>Illustrations and results on this page were made for the course.<br>
+      <a href="https://github.com/Centrum-IntelliPhysics" target="_blank" rel="noopener">github.com/Centrum-IntelliPhysics</a></div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
