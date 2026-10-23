@@ -11,9 +11,9 @@ window.WORKSHOP = {
 
   // Dates and times of the three live sessions, e.g. { date: "Sat 14 Nov 2026", time: "10:00–12:00" }
   sessions: [
-    { date: "", time: "" },
-    { date: "", time: "" },
-    { date: "", time: "" }
+    { date: "October 23, 2026"},
+    { date: "October 24, 2026"},
+    { date: "October 25, 2026"}
   ],
 
   // Contact for questions about the workshop. Leave "" to hide the email link.
