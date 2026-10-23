@@ -6,7 +6,7 @@ physics-informed neural networks and neural operators, built from scratch in PyT
 **Site:** https://centrum-intelliphysics.github.io/NPTEL-SciML-Masterclass/
 
 This repository holds only the public page and a setup-check notebook. The participant kit (worksheets,
-solutions, handouts, slides) is shared separately with registered participants.
+handouts, slides) is shared with registered participants by the NPTEL organisers.
 
 ## Contents
 
