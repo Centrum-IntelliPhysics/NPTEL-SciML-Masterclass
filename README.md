@@ -42,7 +42,7 @@ Everything that changes before the workshop lives in `assets/js/config.js`:
 
 | Field | What it does |
 |---|---|
-| `registrationUrl` | Turns every "Registration opens soon" button into a live **Register on NPTEL** link |
+| `registrationUrl` | Not used at present: the registration buttons were removed from the page |
 | `sessions` | Dates and times shown on the schedule tabs (empty → "Date to be announced") |
 | `timezone` | Shown under the schedule |
 | `contactEmail` | Adds a contact link in the footer and setup section (empty → hidden) |
